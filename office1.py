@@ -24,7 +24,8 @@ def get_db_connection():
     return mysql.connector.connect(
         host="gateway01.ap-southeast-1.prod.aws.tidbcloud.com",
         user="4Er7E7yAa5CmneH.root",
-        password="4Er7E7yAa5CmneH.root",
+        password="JubMX8vnCyJqhX96",
+        port=4000,
         database="cafe",
         autocommit=True
     )
@@ -533,6 +534,7 @@ with tabs[4]:
     # Display saved QR
     if row and row['upi_qr_image_founder']:
         st.image(row['upi_qr_image_founder'], caption="Saved Founder UPI QR", width=150)
+
 
 
 
