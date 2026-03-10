@@ -442,14 +442,12 @@ with tabs[3]:
                     
                     for idx, status in enumerate(order_statuses):
                         with orders_tabs[idx]:
-                            cursor.execute("""
-                                SELECT o.id AS order_id, o.customer_name, o.total_amount, o.status, o.order_time
-                                FROM orders o
-                                JOIN order_items oi ON o.id = oi.order_id
-                                JOIN menu_items m ON oi.menu_id = m.id
-                                WHERE m.email=%s AND o.status=%s
-                                ORDER BY o.order_time DESC
-                            """, (email, status))
+                           cursor.execute("""
+                           SELECT o.id AS order_id, o.customer_name, o.total_amount, o.status, o.order_time
+                           FROM orders o
+                           WHERE o.admin_email = %s AND o.status = %s
+                           ORDER BY o.order_time DESC
+                           """, (email, status))
                             orders = cursor.fetchall()
                             orders_df = pd.DataFrame(orders)
 
@@ -534,6 +532,7 @@ with tabs[4]:
     # Display saved QR
     if row and row['upi_qr_image_founder']:
         st.image(row['upi_qr_image_founder'], caption="Saved Founder UPI QR", width=150)
+
 
 
 
