@@ -11,7 +11,7 @@ from streamlit_autorefresh import st_autorefresh
 # ==========================
 # 🔹 Initialize Firebase
 # ==========================
-cred = credentials.Certificate('billing-bv-13b1fe4ec85f.json')  
+cred = credentials.Certificate('billing-bv-firebase-adminsdk-fbsvc-a54b087e56')  
 if not firebase_admin._apps:
     firebase_admin.initialize_app(cred)
 
@@ -532,4 +532,5 @@ with tabs[4]:
     # Display saved QR
     if row and row['upi_qr_image_founder']:
         st.image(row['upi_qr_image_founder'], caption="Saved Founder UPI QR", width=150)
+
 
