@@ -1,0 +1,6 @@
+streamlit
+mysql-connector-python
+pandas
+firebase-admin
+matplotlib
+streamlit-autorefresh
